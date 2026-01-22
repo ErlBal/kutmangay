@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
@@ -29,26 +30,26 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
-    var c1 by remember { mutableIntStateOf(0) }
-    var c2 by remember { mutableIntStateOf(0) }
-    var c3 by remember { mutableIntStateOf(0) }
+    var cLow by remember { mutableIntStateOf(0) }
+    var cMid by remember { mutableIntStateOf(0) }
+    var cHigh by remember { mutableIntStateOf(0) }
     var last by remember { mutableStateOf("") }
 
     Column(modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Row(Modifier.fillMaxWidth(), Arrangement.SpaceEvenly) {
-            Button(onClick = { c1++; last = "low" }) { Text("Start") }
-            Button(onClick = { c2+=5; last = "mid" }) { Text("Mid") }
-            Button(onClick = { c3+=10; last = "high" }) { Text("End") }
+            Button(onClick = { cLow++; last = "low" }, colors = ButtonDefaults.buttonColors(Color.Red)) { Text("Start")}
+            Button(onClick = { cMid+=5; last = "mid" }, colors = ButtonDefaults.buttonColors(Color.Blue)) { Text("Mid") }
+            Button(onClick = { cHigh+=10; last = "high" }, colors = ButtonDefaults.buttonColors(Color.Gray)) { Text("End") }
         }
 
         Row(Modifier.fillMaxWidth(), Arrangement.SpaceEvenly) {
-            Text("$c1")
-            Text("$c2")
-            Text("$c3")
+            Text("$cLow")
+            Text("$cMid")
+            Text("$cHigh")
         }
 
         Spacer(Modifier.height(20.dp))
 
-        Text(text = last, style = MaterialTheme.typography.headlineLarge)
+        Text(text = "Current button: \n$last", style = MaterialTheme.typography.headlineLarge)
     }
 }
