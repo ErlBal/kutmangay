@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">bekballer</string>
+    <string name="full_name">erlanb</string>
+    <string name="title">andoid class</string>
+    <string name="phone_number">+00 (000) 000 000 000</string>
+    <string name="social_media">@kutmansuper</string>
+    <string name="email_address">some@mail.gay</string>
 </resources>
